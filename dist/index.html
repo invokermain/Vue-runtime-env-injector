@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Example Vue Injection</title>
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+</noscript>
+<div id="app" data-example-env="[[ VUE_APP_EXAMPLE_ENV ]]">
+    The value for the example env is:
+    <script type="text/javascript">
+        const el = document.getElementById('app');
+        const envVar = (
+            el.attributes['data-example-env']
+            ? el.attributes['data-example-env'].value
+            : process.env.VUE_APP_EXAMPLE_ENV
+        );
+        document.write(envVar)
+    </script>
+</div>
+</body>
+</html>
