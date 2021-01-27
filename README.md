@@ -19,7 +19,7 @@ If you look at `dist/index.html` you will see the `div` has various `data-...` a
 to the templated environment variables. At runtime these variables will have their actual values.
 
 Using this and some javascript it is possible to pass these variables to your Vue app. A good way of doing this
-that works for Production and development is to use the following pattern:
+that works for production and development is to use the following pattern in your `main.js`:
 
 e.g. passing `VUE_APP_BASE_URL` to Vue.
 ```js
@@ -29,8 +29,9 @@ const baseURL = (
     ? el.attributes['data-base-url'].value
     : process.env.VUE_APP_BASE_URL
 );
-
 ```
+
+You can then pass `baseUrl` to a Vue mixin etc.
 
 # Production
 To use the dockerfile in production all you need to do is mount your built Vue files and pass in any environment variables. e.g.
